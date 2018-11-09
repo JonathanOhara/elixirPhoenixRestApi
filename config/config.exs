@@ -13,7 +13,7 @@ config :hello_elixir,
 config :hello_elixir, HelloElixirWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "mj+v3Skv+NtyPD91J/S99gUtdp4rKGCCKqijDIIux8gk0UbxBw2xQlIgmfjIP81a",
-  render_errors: [view: HelloElixirWeb.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: HelloElixirWeb.ErrorView, accepts: ~w(html json json-api)],
   pubsub: [name: HelloElixir.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

@@ -24,6 +24,7 @@ defmodule HelloElixirWeb do
       alias HelloElixir.Repo
       import Plug.Conn
       import HelloElixirWeb.Router.Helpers
+      import HelloElixirWeb.ErrorHelpers
       import HelloElixirWeb.Gettext
     end
   end
@@ -31,6 +32,7 @@ defmodule HelloElixirWeb do
   def model do
     quote do
       use Ecto.Schema
+      import Ecto.Changeset
     end
   end
 

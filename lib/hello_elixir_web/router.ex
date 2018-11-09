@@ -16,7 +16,8 @@ defmodule HelloElixirWeb.Router do
   scope "/api", HelloElixirWeb do
     pipe_through :api
 
-    get "/persons", PersonController, :index
+    get "/persons", PersonController, :list
+    post "/persons", PersonController, :insert
   end
 
 end

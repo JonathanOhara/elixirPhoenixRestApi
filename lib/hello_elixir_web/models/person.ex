@@ -6,16 +6,15 @@ defmodule HelloElixirWeb.Person do
       field :age, :integer
       field :email, :string
 
-      timestamps
+      timestamps()
   end
-end
 
-defimpl Poison.Encoder, for: Person do
-  def encode(%{__struct__: _} = struct, options) do
-    map = struct
-          |> Map.from_struct
-
-    map = Map.drop(map, [:__meta__, :inserted_at, :updated_at])
-    Poison.Encoder.Map.encode(map, options)
+  def changeset(person, params \\ :empty) do
+    person
+      |> cast(params, [:name, :email, :age])
+      |> validate_required([:name, :email])
+      |> validate_format(:email, ~r/@/)
+      |> validate_inclusion(:age, 18..100)
+      |> unique_constraint(:email)
   end
 end
