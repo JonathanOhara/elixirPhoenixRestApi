@@ -1,7 +1,6 @@
 defimpl Poison.Encoder, for: Any do
   def encode(%{__struct__: _} = struct, options) do
 
-    IO.puts("iasdiasdiasd")
     map = struct
           |> Map.from_struct
           |> sanitize_map

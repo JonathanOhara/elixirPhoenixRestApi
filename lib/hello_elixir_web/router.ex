@@ -17,7 +17,13 @@ defmodule HelloElixirWeb.Router do
     pipe_through :api
 
     get "/persons", PersonController, :list
+    get "/persons/:id", PersonController, :findOne
+
     post "/persons", PersonController, :insert
+
+    put "/persons/:id", PersonController, :update
+
+    delete "/persons/:id", PersonController, :delete
   end
 
 end
